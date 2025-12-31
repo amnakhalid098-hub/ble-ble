@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Space</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Patrick Hand', cursive;
+      background: linear-gradient(135deg, #ffd6e0, #fff0d6, #e8dfff);
+      color: #5a3a4a;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.7);
+      padding: 40px 30px;
+      border-radius: 25px;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.15em;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 25px;
+    }
+
+    button {
+      background: #ffd6e0;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Hey, you made it here 💛</h1>
+
+    <p>
+      Welcome to our little pastel world 🤍<br>
+      If you’re reading this, you’re officially part of our little universe.<br>
+      This little corner of the internet belongs to us.<br>
+      Somewhere between the stars and our stories, this space came to life.
+    </p>
+
+    <div class="buttons">
+      <button onclick="goYes()">Yes</button>
+      <button onclick="goNo()">No</button>
+    </div>
+  </div>
+
+  <script>
+    function goYes() {
+      window.location.href = "next.html"; 
+    }
+
+    function goNo() {
+      window.location.href = "no.html";
+    }
+  </script>
+
+</body>
+</html>
