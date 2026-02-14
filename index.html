@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Tiny Adventure</title>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #fef8f0; /* soft cream */
-      font-family: 'Patrick Hand', cursive;
+      font-family: 'Shadows Into Light', cursive;
       margin: 0;
       padding: 0;
       display: flex;
@@ -24,23 +24,55 @@
       border-radius: 25px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       position: relative;
+      border: 10px solid transparent;
+      border-image: repeating-linear-gradient(
+        90deg, 
+        #333 0, 
+        #333 1px, 
+        transparent 1px, 
+        transparent 15px
+      ) 10 repeat; /* will be replaced with symbols below */
     }
-    .doodle {
-      width: 80px;
+
+    /* Instead of CSS border-image, use symbol border */
+    .container::before {
+      content: "﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌";
       position: absolute;
-      top: -20px;
-      right: -20px;
-    }
-    h1 {
-      font-size: 24px;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
       color: #333;
+      font-size: 24px;
+      display: block;
+      text-align: center;
+      line-height: 1;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .cat {
+      width: 120px;
+      margin-bottom: 20px;
+      z-index: 5;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #333;
+      z-index: 5;
+      position: relative;
     }
     p {
       font-size: 18px;
       color: #555;
       line-height: 1.5;
       margin-top: 20px;
+      z-index: 5;
+      position: relative;
     }
+
     .btn {
       margin-top: 30px;
       padding: 12px 25px;
@@ -51,20 +83,24 @@
       background-color: #f2a6a6; /* soft muted red */
       color: #fff;
       transition: transform 0.2s, background-color 0.2s;
+      z-index: 5;
+      position: relative;
     }
     .btn:hover {
       transform: scale(1.1);
       background-color: #e08181;
     }
+
     /* Floating doodles */
-    .sparkle {
+    .doodle-float {
       position: absolute;
-      font-size: 20px;
-      animation: float 4s infinite;
+      font-size: 24px;
+      animation: float 5s infinite alternate;
+      z-index: 2;
     }
     @keyframes float {
       0% { transform: translateY(0px);}
-      50% { transform: translateY(-15px);}
+      50% { transform: translateY(-20px);}
       100% { transform: translateY(0px);}
     }
   </style>
@@ -72,16 +108,15 @@
 <body>
 
   <div class="container" id="page">
-    <!-- Dramatic cat doodle -->
-    <img src="dramaticCat.png" alt="Dramatic Cat" class="doodle">
+    <!-- Dramatic cat doodle centered -->
+    <img src="dramaticCat.png" alt="Dramatic Cat" class="cat">
 
-    <!-- Floating playful doodles -->
-    <div class="sparkle" style="top:10px; left:20px;">💛</div>
-    <div class="sparkle" style="top:50px; right:50px;">✨</div>
-    <div class="sparkle" style="top:120px; left:150px;">👽</div>
-    <div class="sparkle" style="top:200px; right:80px;">👺</div>
-    <div class="sparkle" style="top:180px; left:50px;">🫧</div>
-    <div class="sparkle" style="top:60px; left:250px;">💋</div>
+    <!-- Floating playful doodles scattered around -->
+    <div class="doodle-float" style="top: 20px; left: 50px;">⋆˚✿˖°</div>
+    <div class="doodle-float" style="top: 100px; right: 30px;">⋆⭒˚.⋆</div>
+    <div class="doodle-float" style="bottom: 50px; left: 80px;">ᰔᩚ</div>
+    <div class="doodle-float" style="bottom: 100px; right: 100px;">🎀</div>
+    <div class="doodle-float" style="top: 200px; left: 200px;">💋</div>
 
     <!-- Intro text -->
     <h1>Heyooo meri choti si pagal bacchi 💋😋</h1>
@@ -95,9 +130,6 @@
 
   <script>
     const nextBtn = document.getElementById("nextBtn");
-    const page = document.getElementById("page");
-
-    // Placeholder click for next page (we'll code clues later)
     nextBtn.addEventListener("click", () => {
       alert("Next page will be your first clue! 😏💛");
     });
