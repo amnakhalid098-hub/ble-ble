@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Tiny Adventure</title>
+
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background-color: #fef8f0; /* soft cream */
+      background: url("bg.jpg") no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Shadows Into Light', cursive;
       margin: 0;
       padding: 0;
@@ -14,62 +18,33 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      overflow: hidden;
     }
+
     .container {
       text-align: center;
       max-width: 600px;
       padding: 30px;
-      background-color: #fff;
+      background-color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
       border-radius: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      position: relative;
-      border: 10px solid transparent;
-      border-image: repeating-linear-gradient(
-        90deg, 
-        #333 0, 
-        #333 1px, 
-        transparent 1px, 
-        transparent 15px
-      ) 10 repeat; /* will be replaced with symbols below */
-    }
-
-    /* Instead of CSS border-image, use symbol border */
-    .container::before {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      color: #333;
-      font-size: 24px;
-      display: block;
-      text-align: center;
-      line-height: 1;
-      z-index: 10;
-      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.2);
     }
 
     .cat {
       width: 120px;
       margin-bottom: 20px;
-      z-index: 5;
-      position: relative;
     }
 
     h1 {
       font-size: 26px;
       color: #333;
-      z-index: 5;
-      position: relative;
     }
+
     p {
       font-size: 18px;
       color: #555;
       line-height: 1.5;
       margin-top: 20px;
-      z-index: 5;
-      position: relative;
     }
 
     .btn {
@@ -79,53 +54,40 @@
       border: none;
       border-radius: 15px;
       cursor: pointer;
-      background-color: #f2a6a6; /* soft muted red */
+      background-color: #f2a6a6;
       color: #fff;
       transition: transform 0.2s, background-color 0.2s;
-      z-index: 5;
-      position: relative;
     }
+
     .btn:hover {
       transform: scale(1.1);
       background-color: #e08181;
-    }
-
-    /* Floating doodles */
-    .doodle-float {
-      position: absolute;
-      font-size: 24px;
-      animation: float 5s infinite alternate;
-      z-index: 2;
-    }
-    @keyframes float {
-      0% { transform: translateY(0px);}
-      50% { transform: translateY(-20px);}
-      100% { transform: translateY(0px);}
     }
   </style>
 </head>
 <body>
 
-  <div class="container" id="page">
-    <!-- Dramatic cat doodle centered -->
+  <div class="container">
+    
+    <!-- Dramatic Cat -->
     <img src="dramaticCat.png" alt="Dramatic Cat" class="cat">
 
-    <!-- Floating playful doodles scattered around -->
-    <!-- Intro text -->
+    <!-- Text -->
     <h1>Heyooo meri choti si pagal bacchi 💋😋</h1>
+
     <p>
       welcome to your very own tiny adventure. honestly, i doubt you’ll survive even the first click without whining ble👅, but sure… let’s see if you can somehow find the treasures without completely messing it up👺 don’t worry, i will be here to roll my eyes at every wrong choice buhahaha👽
     </p>
 
-    <!-- Button to go to next page -->
-    <button class="btn" id="nextBtn">click me, if u dare 👅</button>
+    <!-- Button -->
+    <button class="btn" onclick="nextPage()">click me, if u dare 👅</button>
+
   </div>
 
   <script>
-    const nextBtn = document.getElementById("nextBtn");
-    nextBtn.addEventListener("click", () => {
-      alert("Next page will be your first clue! 😏💛");
-    });
+    function nextPage(){
+      alert("Next page coming soon 😏💛");
+    }
   </script>
 
 </body>
